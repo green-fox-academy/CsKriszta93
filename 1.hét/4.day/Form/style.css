@@ -1,0 +1,112 @@
+#main-box {
+  font-family: 'Lato', sans-serif;
+  color: #4a4261;
+  background-color: #dcd6cd;
+  width: 780px;
+  height: 820px;
+  margin: auto auto;
+  box-sizing: border-box; 
+     
+}
+
+
+h1 {
+  font-size: 26px;
+  font-weight: lighter;
+  padding: 50px 30px 30px 0px;
+  /*border: 5px solid black;*/
+  margin: 0px;
+
+}
+
+
+h2 {
+  font-size: 20px;
+  font-weight: lighter;
+  color: white;
+  border-radius: 3px;
+  background-color: #968f99;
+  width: 230px; 
+  display: inline-block;
+  padding: 8px;
+  margin: 0px 20px 0px 0px;
+  
+}
+
+
+label.required:after {
+  content: " *"; color: red;
+
+}
+
+::-webkit-input-placeholder {
+  color:#968f99;
+
+}
+
+#half {
+  width: 100%;
+  box-sizing: border-box; 
+
+}
+
+#little-half {
+  width: 50%;
+  display: inline-block;
+
+
+}  
+
+#little-half2 {
+  width: 50%;
+  float: left;
+
+}
+
+input[type="name"],
+input[type="email"],
+input[type="tel"] {
+  width: 230px;
+  padding: 8px;
+  margin-top: 5px; 
+  border-radius: 3px; 
+  box-sizing: content-box;
+}
+
+input[type="number"] {
+  width: 100px;
+  padding: 8px;
+  border-radius: 4px;
+  margin: 0px; 
+  box-sizing: content-box; 
+  
+}
+
+label[for="name"], 
+label[for="tel"],
+label[for="email"], 
+label[for="date"], 
+label[for="gender"], 
+label[for="brands"] {
+  font-weight: bold; 
+  margin-bottom: 5px;
+
+}
+
+#first-div {
+  display: inline-block;
+
+}
+
+#second-div {
+  display: inline-block;
+
+}
+
+#brands {
+  width: 50%;
+  height: 110px; 
+
+}
+
+

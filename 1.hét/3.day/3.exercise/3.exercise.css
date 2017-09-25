@@ -1,0 +1,11 @@
+body {
+  font-size:36px;
+  color:white; 
+}
+
+.north > p {
+  display: block
+  height:260px;
+  width:365px
+  border:10px solid #4285f4
+}

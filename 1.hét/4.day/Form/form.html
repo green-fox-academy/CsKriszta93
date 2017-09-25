@@ -1,0 +1,78 @@
+<html>
+
+<head>
+  <link href="style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+</head>
+
+<body>
+  <div id="main-box">
+    <h1>Profil</h1>   
+
+    <form>
+      <div id="half">
+        <div id="little-half">
+          <h2>Személyes adatok</h2>
+          <div id="name">
+            <label for="name" class="required">Név</label><br>
+            <input type="name" id="name" name="user_name" required>
+          </div>
+          <div id="first-div">
+            <label for="date">Születési éved</label><br>
+            <input type="number" placeholder="pl.1984" id="date" name="user_date">
+          </div>
+          <div id="second-div">
+            <label for="gender">Nemed</label><br>
+            <input type="radio" id="gender1" name="gender" value="Férfi">
+            <label for="genderchoice1">Férfi</label>
+            <input type="radio" id="gender2" name="gender" value="Nő">
+            <label for="genderchoice2">Nő</label>
+          </div>             
+
+          <div id="brands">
+            <label for="brands">Milyen márkákat szeretsz?</label><br>
+            <input type="checkbox" id="adidas">
+            <label for="adidas">Adidas</label><br/>
+            <input type="checkbox" id="apple">
+            <label for="apple">Apple</label><br/>
+            <input type="checkbox" id="coca-cola">
+            <label for="coca-cola">Coca-Cola</label><br/>
+            <input type="checkbox" id="mazda">
+            <label for="mazda">Mazda</label><br/>
+            <input type="checkbox" id="nike">
+            <label for="nike">Nike</label>
+            <input type="checkbox" id="opel">
+            <label for="opel">Mazda</label><br/>
+            <input type="checkbox" id="ray-ban">
+            <label for="ray-ban">Ray-Ban</label><br/>
+            <input type="checkbox" id="starbucks">
+            <label for="starbucks">Startbucks</label><br/>
+            <input type="checkbox" id="tesla">
+            <label for="tesla">Tesla</label><br/>
+            <input type="checkbox" id="yahoo">
+            <label for="yahoo">Yahoo</label><br/>
+            <p>Többet is választhatsz!</p>
+          </div>
+        </div>
+
+        <div id="little-half2">
+         <h2>Kapcsolat</h2>
+         <div id="tel">
+          <label for="tel" class="required">Telefonszám</label><br>
+          <input type="tel" placeholder="+36 -- --- ----" id="tel" name="user_phone" required>
+         </div>
+         <div>
+          <label for="email" class="required">E-Mail cím</label><br>
+          <input type="email" id="email" placeholder="nev@domain.hu">
+         </div>
+        </div>
+      </div>
+</div>
+
+    </form>
+  </div>
+
+</body>
+
+</html>

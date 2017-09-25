@@ -1,0 +1,60 @@
+body{
+  margin:0;
+  padding:0;
+}
+
+main {
+  padding:10px;
+  margin:0px 60px 0px 60px;
+}
+
+h1,h2 {
+  font-family:PT Serif', serif;
+}
+
+h1{
+  font-size:40px;
+}
+
+h2 {
+  color:#ff0099;
+}
+
+h3{
+  font-size:30px;
+  text-align:center;
+  padding:20px
+}
+
+p,dd {
+  font-family:consolas, Courier New, Courier, monospace;
+}
+
+nav {
+  background:#333333;
+  padding:0px;
+  text-align:right;
+  
+}
+
+ ul{
+   margin:0px 0px 18px 0px;
+
+ }
+
+li {
+  font-size:15px;
+  display:inline-block;
+  color:#ff0099;
+  text-transform:uppercase;
+  text-decoration: underline;
+  margin:25px;
+
+}
+
+body {
+  background:url(background.png) repeat;
+
+}
+
+;
