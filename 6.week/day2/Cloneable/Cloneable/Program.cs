@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks; 
 
 namespace Cloneable
 {
@@ -10,6 +10,8 @@ namespace Cloneable
     {
         static void Main(string[] args)
         {
+            Student john = new Student("John Doe", 20, "male", "BME");
+            Student johnTheClone = (Student)john.Clone();
         }
     }
 }

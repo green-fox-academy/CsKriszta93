@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Cloneable
 {
     public interface ICloneable
@@ -11,7 +12,7 @@ namespace Cloneable
         object Clone();
     }
 
-    class Student : ICloneable
+    public class Student : ICloneable
     {
         public string name;
         public int age;
@@ -36,7 +37,7 @@ namespace Cloneable
 
         public object Clone()
         {
-            return new Student();
+            return MemberwiseClone();
         }
     }
 }
