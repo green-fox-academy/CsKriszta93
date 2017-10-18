@@ -25,21 +25,9 @@ namespace Comparable
             return Values;
         }
 
-        public static List<Domino> InitializeDominoes()
+        public int CompareTo(object obj)
         {
-            var dominoes = new List<Domino>();
-            dominoes.Add(new Domino(5, 2));
-            dominoes.Add(new Domino(4, 6));
-            dominoes.Add(new Domino(1, 5));
-            dominoes.Add(new Domino(6, 7));
-            dominoes.Add(new Domino(2, 4));
-            dominoes.Add(new Domino(7, 1));
-            return dominoes;
-        }
-
-        public int CompareTo()
-        {
-            return 
+            
         }
     }
 }
