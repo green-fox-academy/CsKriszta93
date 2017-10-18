@@ -14,7 +14,7 @@ namespace Exercise7
 
             var result =
                 from city in cities
-                where city[0] == 'A' && city[city.Length - 1] == 'I' 
+                where city.StartsWith("A") && city.EndsWith("I") 
                 select city;
 
             foreach (var i in result)
