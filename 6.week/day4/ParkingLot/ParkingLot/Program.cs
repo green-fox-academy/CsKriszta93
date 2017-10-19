@@ -10,6 +10,13 @@ namespace ParkingLot
     {
         static void Main(string[] args)
         {
+            var parkingLot = new ParkingLotClass();
+            var cars = parkingLot.AddCarsToList();
+
+            foreach (var Car in cars)
+            {
+                Console.WriteLine(Car);
+            }
         }
     }
 }

@@ -20,5 +20,13 @@ namespace ParkingLot
             }
             return carsList;
         }
+
+        public void StateOfParkingLot()
+        {
+            foreach (Car car in cars )
+            {
+                Console.WriteLine("A {0}, {1}." , Car.GenerateColor(), Car.GenerateType());
+            }
+        }
     }
 }
