@@ -26,7 +26,7 @@ namespace ParkingLot
             var cars = AddCarsToList();
             foreach (var Car in cars)
             {
-                Console.WriteLine("Color: {0}, Type: {1}", Car.GenerateColor().ToString(), Car.GenerateType().ToString());
+                Console.WriteLine("Color: {0}, Type: {1}", Car.carColors, Car.carTypes);
             }
         }
     }

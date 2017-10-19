@@ -8,8 +8,8 @@ namespace ParkingLot
 {
     public class Car
     {
-        public Type CarTypes { get; set; }
-        public Color CarColors { get; set; }
+        public Type carTypes { get; set; }
+        public Color carColors { get; set; }
         public static Random random = new Random();
 
         public enum Type
@@ -34,8 +34,8 @@ namespace ParkingLot
 
         public Car(Type carType, Color carColor)
         {
-            this.CarTypes = carType;
-            this.CarColors = carColor;
+            this.carTypes = carType;
+            this.carColors = carColor;
         }
 
         public static Type GenerateType()
@@ -50,6 +50,11 @@ namespace ParkingLot
             var enumValues = Enum.GetValues(typeof(Color));
             var randomValue = (Color)enumValues.GetValue(random.Next(enumValues.Length));
             return randomValue;
+        }
+
+        public override string ToString()
+        {
+            return $"{carTypes}, {carColors}";
         }
     }
 }
