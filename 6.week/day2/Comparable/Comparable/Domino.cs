@@ -6,11 +6,6 @@ using System.Threading.Tasks;
 
 namespace Comparable
 {
-    public interface IComparable
-    {
-        int CompareTo(object domino);
-    }
-   
     public class Domino : IComparable
     {
         private readonly int[] Values;
