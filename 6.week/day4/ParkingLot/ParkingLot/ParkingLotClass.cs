@@ -23,9 +23,10 @@ namespace ParkingLot
 
         public void StateOfParkingLot()
         {
-            foreach (Car car in cars )
+            var cars = AddCarsToList();
+            foreach (var Car in cars)
             {
-                Console.WriteLine("A {0}, {1}." , Car.GenerateColor(), Car.GenerateType());
+                Console.WriteLine("Color: {0}, Type: {1}", Car.GenerateColor().ToString(), Car.GenerateType().ToString());
             }
         }
     }

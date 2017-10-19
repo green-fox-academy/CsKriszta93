@@ -11,12 +11,9 @@ namespace ParkingLot
         static void Main(string[] args)
         {
             var parkingLot = new ParkingLotClass();
-            var cars = parkingLot.AddCarsToList();
+            parkingLot.StateOfParkingLot();
 
-            foreach (var Car in cars)
-            {
-                Console.WriteLine(Car);
-            }
+            Console.ReadLine();
         }
     }
 }
