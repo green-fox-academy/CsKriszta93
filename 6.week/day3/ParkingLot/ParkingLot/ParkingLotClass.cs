@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace ParkingLot
 {
-    class ParkingLotClass
+    public class ParkingLotClass
     {
+        public List<Car> cars = new List<Car>();
+
+        public List<Car> AddCarsToList()
+        {
+            var carsList = new List<Car>();
+
+            for (int i = 0; i < 256; i++)
+            {
+                carsList.Add(new Car(Car.GenerateType(), Car.GenerateColor()));
+            }
+            return carsList;
+        }
     }
 }
