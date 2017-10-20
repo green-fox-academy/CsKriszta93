@@ -12,6 +12,13 @@ namespace TwentyPlusOne
         public Suit cardSuit { get; set; }
         public Rank cardRank { get; set; }
 
+        public Card(Suit suit, Rank rank, Color color)
+        {
+            this.cardSuit = suit;
+            this.cardRank = rank;
+            this.cardColor = color;
+        }
+
         public enum Color
         {
             red,
@@ -41,6 +48,11 @@ namespace TwentyPlusOne
             Q = 12,
             K = 13,
             A = 14
+        }
+
+        public override string ToString()
+        {
+            return $"{cardSuit}, {cardRank}";
         }
     }
 }
