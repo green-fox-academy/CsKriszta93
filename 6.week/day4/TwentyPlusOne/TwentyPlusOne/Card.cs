@@ -11,6 +11,7 @@ namespace TwentyPlusOne
         public Color cardColor { get; set; }
         public Suit cardSuit { get; set; }
         public Rank cardRank { get; set; }
+        public static Random random = new Random();
 
         public Card(Suit suit, Rank rank, Color color)
         {
@@ -50,9 +51,30 @@ namespace TwentyPlusOne
             A = 14
         }
 
+        //public static Color GenerateColor()
+        //{
+        //    var enumValues = Enum.GetValues(typeof(Color));
+        //    var randomValue = (Color)enumValues.GetValue(random.Next(enumValues.Length));
+        //    return randomValue;
+        //}
+
+        //public static Suit GenerateSuit()
+        //{
+        //    var enumValues = Enum.GetValues(typeof(Suit));
+        //    var randomValue = (Suit)enumValues.GetValue(random.Next(enumValues.Length));
+        //    return randomValue;
+        //}
+
+        //public static Rank GenerateRank()
+        //{
+        //    var enumValues = Enum.GetValues(typeof(Rank));
+        //    var randomValue = (Rank)enumValues.GetValue(random.Next(enumValues.Length));
+        //    return randomValue;
+        //}
+
         public override string ToString()
         {
-            return $"{cardSuit}, {cardRank}";
+            return $"{cardSuit}, {cardRank}, {cardColor}";
         }
     }
 }

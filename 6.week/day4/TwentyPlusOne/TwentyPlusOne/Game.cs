@@ -16,14 +16,14 @@ namespace TwentyPlusOne
             return score;
         }
 
-        public void ContinueOrStop(string input)
-        {
-            Console.WriteLine("Do you want to continue or do you want to stop drawing? Yes or No?");
-            string input = Console.ReadLine();
-            if (input == "Yes")
-            {
+        //public void ContinueOrStop(string input)
+        //{
+        //    Console.WriteLine("Do you want to continue or do you want to stop drawing? Yes or No?");
+        //    string input = Console.ReadLine();
+        //    if (input == "Yes")
+        //    {
 
-            }
-        }
+        //    }
+        //}
     }
 }

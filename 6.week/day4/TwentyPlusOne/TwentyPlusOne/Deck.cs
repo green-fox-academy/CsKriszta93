@@ -17,10 +17,10 @@ namespace TwentyPlusOne
             {
                 for (int rank = 0; rank < 15; rank++)
                 {
-                    for (int color = 0; rank < 2; color++)
+                    for (int color = 0; color < 2; color++)
                     {
                         cards.Add(new Card((Card.Suit)suit, (Card.Rank)rank, (Card.Color)color));
-                    }          
+                    }
                 }
             }
             return cards;
@@ -46,11 +46,11 @@ namespace TwentyPlusOne
 
         }
 
-        public Card PullRandom()
-        {
-            var randomFromShuffle = ShuffleDeck();
-            var randomCard = random.Next(cards.Count());
-            cards.RemoveAt(randomCard);
-        }
+        //public Card PullRandom()
+        //{
+        //    var randomFromShuffle = ShuffleDeck();
+        //    var randomCard = random.Next(cards.Count());
+        //    cards.RemoveAt(randomCard);
+        //}
     }
 }
