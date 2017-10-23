@@ -8,15 +8,15 @@ namespace Exercise10
 {
     public class Fox
     {
-        public string name;
-        public string type; 
-        public string color;
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public string Color { get; set; }
 
         public Fox(string name, string type, string color)
         {
-            this.name = name;
-            this.type = type;
-            this.color = color;
-        }
+            this.Name = name;
+            this.Type = type;
+            this.Color = color;
+        }  
     }
 }
