@@ -11,18 +11,12 @@ namespace Exercise10
         public string name;
         public string type; 
         public string color;
-        public List<Fox> foxes;
 
         public Fox(string name, string type, string color)
         {
             this.name = name;
             this.type = type;
             this.color = color;
-        }
-
-        public List<Fox> AddToList()
-        {
-
         }
     }
 }
