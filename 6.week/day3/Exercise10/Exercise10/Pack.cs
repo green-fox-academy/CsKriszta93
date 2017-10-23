@@ -25,7 +25,7 @@ namespace Exercise10
         public void FoxGreenAndPallida(List<Fox> input)
         {
             var greenPallida = from fox in input
-                               where fox.Color == "green" || fox.Type == "pallida"
+                               where fox.Color == "green" && fox.Type == "pallida"
                                select fox.Name;
 
             foreach (var Fox in greenPallida)
