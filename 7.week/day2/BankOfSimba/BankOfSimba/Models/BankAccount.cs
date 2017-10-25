@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static BankOfSimba.Models.AnimalTypes;
 
 namespace BankOfSimba.Models
 {
@@ -9,13 +10,6 @@ namespace BankOfSimba.Models
     {
         public string Name { get; set; }
         public int Balance { get; set; }
-        public string AnimalType { get; set; }
-
-        public BankAccount(string name, int balance, string animalType)
-        {
-            this.Name = name;
-            this.Balance = balance;
-            this.AnimalType = animalType;
-        }
+        public AnimalType AnimalType { get; set; } 
     }
 }
