@@ -5,18 +5,20 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Exercise.Models;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace Exercise.Controllers
 {
     [Route("api")]
     public class RESTController : Controller
     {
+        static int counter = 0;
         // GET: /<controller>/
+
         [Route("greeting")]
-        public IActionResult Greeting()
+        public IActionResult Greeting(string input)
         {
-            Greeting greeting = new Greeting();
+            var greeting = new Greeting();
+            greeting.Id = ++counter;
+            greeting.Content = $"Id: {greeting.Id} Hello {input}";
             return new JsonResult(greeting);
         }
     }
