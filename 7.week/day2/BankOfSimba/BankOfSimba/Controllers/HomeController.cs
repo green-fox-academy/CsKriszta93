@@ -6,15 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using BankOfSimba.Models;
 using static BankOfSimba.Models.AnimalTypes;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace BankOfSimba.Controllers
 {
     public class HomeController : Controller
     {
         [Route("Simba")]
-        
-        // GET: /<controller>/
         public IActionResult Index()
         {     
             return View(bankAccount);
@@ -26,5 +22,52 @@ namespace BankOfSimba.Controllers
             Balance = 2000,
             AnimalType = AnimalType.Lion
         };
+
+        [Route("Characters")]
+        public IActionResult List()
+        {
+            Bank bank = new Bank();
+            BankAccount bankAccount2 = new BankAccount()
+            {
+                Name = "Simba",
+                Balance = 2000,
+                AnimalType = AnimalType.Lion
+            };
+            bank.bankAccounts.Add(bankAccount2);
+
+            BankAccount bankAccount3 = new BankAccount()
+            {
+                Name = "Timon",
+                Balance = 1000,
+                AnimalType = AnimalType.Meerkat
+            };
+            bank.bankAccounts.Add(bankAccount3);
+
+            BankAccount bankAccount4 = new BankAccount()
+            {
+                Name = "Pumba",
+                Balance = 100,
+                AnimalType = AnimalType.Warthog
+            };
+            bank.bankAccounts.Add(bankAccount4);
+
+            BankAccount bankAccount5 = new BankAccount()
+            {
+                Name = "Zazu",
+                Balance = 3000,
+                AnimalType = AnimalType.Hornbill
+            };
+            bank.bankAccounts.Add(bankAccount5);
+
+            BankAccount bankAccount6 = new BankAccount()
+            {
+                Name = "Rafiki",
+                Balance = 4000,
+                AnimalType = AnimalType.Mandrill
+            };
+            bank.bankAccounts.Add(bankAccount6);
+
+            return View(bank.bankAccounts);
+        }
     }
 }

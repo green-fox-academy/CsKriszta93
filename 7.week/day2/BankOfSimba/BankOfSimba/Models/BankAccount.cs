@@ -10,6 +10,6 @@ namespace BankOfSimba.Models
     {
         public string Name { get; set; }
         public int Balance { get; set; }
-        public AnimalType AnimalType { get; set; } 
+        public AnimalType AnimalType { get; set; }
     }
 }
