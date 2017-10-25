@@ -24,9 +24,10 @@ namespace BankOfSimba.Controllers
         };
 
         [Route("Characters")]
-        public IActionResult List()
+        public IActionResult Bank()
         {
             Bank bank = new Bank();
+
             BankAccount bankAccount2 = new BankAccount()
             {
                 Name = "Simba",
@@ -62,7 +63,7 @@ namespace BankOfSimba.Controllers
             BankAccount bankAccount6 = new BankAccount()
             {
                 Name = "Rafiki",
-                Balance = 4000,
+                Balance = 100000,
                 AnimalType = AnimalType.Mandrill
             };
             bank.bankAccounts.Add(bankAccount6);
