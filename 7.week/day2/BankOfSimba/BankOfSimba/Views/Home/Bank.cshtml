@@ -6,12 +6,14 @@
 </head>
 <body>
     <table>
-        @foreach (var bankAccount in Model.bankAccounts)
+        @{ int index = 0;}
+        @foreach (var account in Model.bankAccounts)
         {
             <tr>
-                <td>@bankAccount.Name</td>
-                <td>@bankAccount.AnimalType.ToString()</td>
-                <td>@bankAccount.Balance.ToString()</td>
+                <td>@(index++)</td>
+                <td>@account.Name</td>
+                <td>@account.AnimalType.ToString()</td>
+                <td>@account.Balance.ToString()</td>
             </tr>
         }
     </table>
