@@ -5,14 +5,13 @@ using System.Threading.Tasks;
 
 namespace Counter.Models
 {
-    public class Counter
+    public class CounterClass
     {
-        public int click { get; set; } = 1;
-
+        public int clicks { get; set; } = 1;
 
         public int IncreaseCounter()
         {
-            return click++;
+            return clicks++;
         }
     }
 }
