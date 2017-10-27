@@ -26,17 +26,17 @@ namespace GreetSomeone.Controllers
         }
 
         [HttpPost]
-        [Route("greeting")]
-        public IActionResult Greet(string userName)
+        [Route("submit")]
+        public IActionResult Greet(Greet nameFromForm)
         {
-            greet.Name = userName;
+            greet.Name = nameFromForm.Name;
             return RedirectToAction("GreetUser");
         }
 
         [HttpGet]
-        [Route("greeting")]
-        public IActionResult GreetUser()
-        { 
+        [Route("submit")]
+        public IActionResult GreetUser(string userName)
+        {
             return View(greet);
         }
     }

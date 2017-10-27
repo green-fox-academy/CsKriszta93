@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace GreetSomeone
+namespace FoxClub
 {
     public class Startup
     {
@@ -17,7 +17,6 @@ namespace GreetSomeone
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<Models.Greet>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,7 +29,8 @@ namespace GreetSomeone
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc();
+            app.UseStaticFile();
 
             app.Run(async (context) =>
             {
