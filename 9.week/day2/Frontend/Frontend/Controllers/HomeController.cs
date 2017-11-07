@@ -10,7 +10,6 @@ namespace Frontend.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: /<controller>/
         [HttpGet]
         [Route("/")]
         public IActionResult Index()
@@ -38,15 +37,30 @@ namespace Frontend.Controllers
         {
             if (name == null)
             {
-                return Json(new { error_message = "Please, provide a name" });
+                return Json(new { error = "Please provide a name!" });
             }
             else if (title == null)
             {
-                return Json(new { error_message = "Please, provide a title" });
+                return Json(new { error = "Please provide a title!" });
             }
             else
             {
-                return Json(new { welcome_message = "Oh hi there {0}, my dear {1}", name, title });
+                return Json(new { welcome_message = $"Oh, hi there {name}, my dear {title}" });
+            }
+        }
+
+        [HttpGet]
+        [Route("/appenda /{appendable}")]
+        [Route("appenda")]
+        public IActionResult AppendA(string appendable)
+        {
+            if (appendable != null)
+            {
+                return Json(new { appended = $"{appendable}a" });
+            }
+            else
+            {
+                return NotFound();
             }
         }
     }
