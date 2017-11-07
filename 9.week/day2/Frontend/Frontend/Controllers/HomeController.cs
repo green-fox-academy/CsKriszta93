@@ -63,5 +63,32 @@ namespace Frontend.Controllers
                 return NotFound();
             }
         }
+
+        [HttpPost]
+        [Route("/dountil/{what}")]
+        public IActionResult Dountil(string what, [FromBody] int? number )
+        {
+            int result = 0;
+
+            if (number == null)
+            {
+                return Json(new { error = "Please provide a number!" });
+            }
+            else if (what == "sum")
+            {              
+                for (int i = 0; i < number; i++)
+                {
+                    result += i;
+                }              
+            }
+            else if (what == "factor")
+            {
+                for (int i = 1; i <= number; i++)
+                {
+                    result *= i;
+                }
+            }
+            return Json(new { until = number, result = result });
+        }
     }
 }
