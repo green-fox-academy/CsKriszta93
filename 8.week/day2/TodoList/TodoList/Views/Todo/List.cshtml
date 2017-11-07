@@ -1,0 +1,27 @@
+﻿@model List<TodoList.Models.Todo>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>TodoList</title>
+</head>
+<body>
+    <h1>TODOS FOR TODAY:</h1>
+    <table>
+        <tr>
+          <th>ID</th>
+          <th>ACTION</th>
+          <th>DONE</th>
+          <th>URGENT</th>
+        </tr>
+        @foreach (var todo in Model)
+        {
+            <tr>
+                <td>@todo.Id</td>
+                <td>@todo.Title</td>
+                <td>@todo.IsDone</td>
+                <td>@todo.IsUrgent</td>
+            </tr>
+        }       
+    </table>
+</body>
+</html>

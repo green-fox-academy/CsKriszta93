@@ -7,16 +7,22 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
+using System.IO;
+using TodoList.Repositories;
+using Microsoft.EntityFrameworkCore;
+using TodoList.Entities;
 
-namespace ListingTodos
+namespace TodoList
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = Todos; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = True; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
             services.AddMvc();
+            services.AddDbContext<TodoContext>(options => options.UseSqlServer(connectionString));
+            services.AddScoped<TodoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -29,6 +35,7 @@ namespace ListingTodos
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
             app.UseMvc();
 
             app.Run(async (context) =>
@@ -38,4 +45,3 @@ namespace ListingTodos
         }
     }
 }
-
