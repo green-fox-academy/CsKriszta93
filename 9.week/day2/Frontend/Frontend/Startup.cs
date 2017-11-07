@@ -29,9 +29,9 @@ namespace Frontend
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();
             app.UseMvc();
+            app.UseDefaultFiles();
 
             app.Run(async (context) =>
             {

@@ -11,16 +11,38 @@ namespace Frontend.Controllers
     public class HomeController : Controller
     {
         // GET: /<controller>/
+        [HttpGet]
+        [Route("")]
         public IActionResult Index()
         {
-            return View();
+            return File("index.html", "text/html");
         }
 
         [HttpGet]
         [Route("/doubling")]
-        public IActionResult Index()
+        public IActionResult JsonResult(int? input)
         {
-            return View();
+            if (input == null)
+            {
+                return Json(new { error = "Please provide an input!" });
+            }
+            else
+            {
+                return Json(new { recieved = input, result = input * 2 });
+            }
+        }
+
+        [HttpGet]
+        [Route("/greeter")]
+        [Route("")]
+        public IActionResult Greeting(string name, string title)
+        {
+            if (name == null || title == null)
+            {
+                return Json(new { error_message = "Please, provide a name" });
+            }
+
+            return Json(new { welcome_message = "Oh hi there {0}, my dear {1}", name, title });
         }
     }
 }
