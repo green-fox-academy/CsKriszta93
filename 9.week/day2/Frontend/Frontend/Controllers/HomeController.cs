@@ -12,7 +12,7 @@ namespace Frontend.Controllers
     {
         // GET: /<controller>/
         [HttpGet]
-        [Route("")]
+        [Route("/")]
         public IActionResult Index()
         {
             return File("index.html", "text/html");
@@ -20,7 +20,7 @@ namespace Frontend.Controllers
 
         [HttpGet]
         [Route("/doubling")]
-        public IActionResult JsonResult(int? input)
+        public IActionResult Doubling(int? input)
         {
             if (input == null)
             {
@@ -28,21 +28,26 @@ namespace Frontend.Controllers
             }
             else
             {
-                return Json(new { recieved = input, result = input * 2 });
+                return Json(new { received = input, result = input * 2 });
             }
         }
 
         [HttpGet]
         [Route("/greeter")]
-        [Route("")]
-        public IActionResult Greeting(string name, string title)
+        public IActionResult Greeter(string name, string title)
         {
-            if (name == null || title == null)
+            if (name == null)
             {
                 return Json(new { error_message = "Please, provide a name" });
             }
-
-            return Json(new { welcome_message = "Oh hi there {0}, my dear {1}", name, title });
+            else if (title == null)
+            {
+                return Json(new { error_message = "Please, provide a title" });
+            }
+            else
+            {
+                return Json(new { welcome_message = "Oh hi there {0}, my dear {1}", name, title });
+            }
         }
     }
 }
