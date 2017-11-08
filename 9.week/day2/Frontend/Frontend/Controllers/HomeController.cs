@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Frontend.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Frontend.Controllers
 {
@@ -87,27 +88,31 @@ namespace Frontend.Controllers
 
         [HttpPost]
         [Route("/arrays/{what}")]
-        public IActionResult Arrays(string what, [FromBody] int[] numbers)
+        public IActionResult Arrays(string what, [FromBody] ArrayClass numbers)
         {
             int result = 0;
 
-            if (what == "sum")
+            if (numbers.array.Length == 0)
             {
-                foreach (int number in numbers)
-                {
-                    result += number;
-                }
+                return Json(new { error = "Please provide an array" });
             }
-            else if (what == "multiply")
-            {
-                for (int i = 1; i <= numbers.Length; i++)
-                {
-                    result *= numbers[i];
-                }
-            }
-            else if (what == "double")
-            { 
 
+            for (int i = 1; i < numbers.array.Length; i++)
+            {
+                if (what == "sum")
+                {
+                    result += numbers.array[i];
+                }
+
+                if (what == "multiply")
+                {
+                    result *= numbers.array[i];
+                }
+
+                if (what == "double")
+                {
+                    result = numbers.array[i * 2];
+                }
             }
 
             return Json(new { result = result });
