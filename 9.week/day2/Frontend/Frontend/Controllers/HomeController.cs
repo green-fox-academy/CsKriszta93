@@ -84,5 +84,33 @@ namespace Frontend.Controllers
             }
             return Json(new { until = number, result = result });
         }
+
+        [HttpPost]
+        [Route("/arrays/{what}")]
+        public IActionResult Arrays(string what, [FromBody] int[] numbers)
+        {
+            int result = 0;
+
+            if (what == "sum")
+            {
+                foreach (int number in numbers)
+                {
+                    result += number;
+                }
+            }
+            else if (what == "multiply")
+            {
+                for (int i = 1; i <= numbers.Length; i++)
+                {
+                    result *= numbers[i];
+                }
+            }
+            else if (what == "double")
+            { 
+
+            }
+
+            return Json(new { result = result });
+        }
     }
 }
