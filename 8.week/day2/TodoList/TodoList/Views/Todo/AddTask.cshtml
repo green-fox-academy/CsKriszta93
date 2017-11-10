@@ -1,10 +1,19 @@
 ﻿@model TodoList.Models.Todo
 
+@{ 
+    Layout = "_Layout";
+}
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>AddTask</title>
+    <title></title>
+    @*<link rel="stylesheet" type="text/css" href="@Url.Content("~/Css/StyleSheet1.css")" />*@
 </head>
 <body>
-
+    <form action="todo/add" method="post">
+        <label for="Title">What's your task?</label><br/>
+        <input type="text" class="form-control" placeholder="Add new task" id="Title" name="Title"/><br/>
+        <button class="alert-success" type="submit">Add</button>
+    </form>
 </body>
-<</html>
+</html>

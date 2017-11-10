@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using TodoList.Entities;
@@ -16,14 +17,32 @@ namespace TodoList.Repositories
             this.todoContext = todoContext;
         }
 
-        public List<Todo> GetListOfTasks()
+        public List<Todo> GetTasks()
         {
             return todoContext.Todos.ToList();
         }
 
-        public void AddTask(Todo todo)
+        public List<Todo> TasksTodo()
         {
-            todoContext.Todos.Add(todo);
+            var tasks = from todo in todoContext.Todos
+                        where !todo.IsDone
+                        select todo;
+            return tasks.ToList();
+        }
+
+        public void AddTask(string title)
+        {
+            todoContext.Todos.Add(new Todo { Title = title });
+            todoContext.SaveChanges();
+        }
+
+        public void RemoveTask(int id)
+        {
+            var remove = (from todo in todoContext.Todos
+                            where todo.Id == id
+                            select todo).FirstOrDefault();
+
+            todoContext.Todos.Remove(remove);
             todoContext.SaveChanges();
         }
     }

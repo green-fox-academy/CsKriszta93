@@ -3,25 +3,45 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>TodoList</title>
+    @{ 
+        Layout = "_Layout";
+    }
 </head>
 <body>
     <h1>TODOS FOR TODAY:</h1>
-    <table>
-        <tr>
-          <th>ID</th>
-          <th>ACTION</th>
-          <th>DONE</th>
-          <th>URGENT</th>
-        </tr>
-        @foreach (var todo in Model)
-        {
-            <tr>
-                <td>@todo.Id</td>
-                <td>@todo.Title</td>
-                <td>@todo.IsDone</td>
-                <td>@todo.IsUrgent</td>
-            </tr>
-        }       
-    </table>
+    <form action="http://localhost:54440/todo/add">
+        <input type="hidden" value="submit"/>
+        <button class="btn-success" id="task" type="submit">Add new Task</button>
+    </form>
+    @*<a href="http://localhost:54440/todo/add">Add new task</a>*@ 
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="thread">
+                <tr>
+                    <th>ID <</th>
+                    <th>ACTION</th>
+                    <th>DONE</th>
+                    <th>URGENT</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var todo in Model)
+            {
+                    <tr>
+                        <td>@todo.Id</td>
+                        <td>@todo.Title</td>
+                        <td>@todo.IsDone</td>
+                        <td>@todo.IsUrgent</td>
+                        <td>
+                            <form action="/(@todo.Id)/delete" method="post">
+                                <input type="hidden" name="Id" value="@todo.Id" />
+                                <button class="btn-danger" id="table" type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

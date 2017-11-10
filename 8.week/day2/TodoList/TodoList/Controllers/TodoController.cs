@@ -6,11 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using TodoList.Repositories;
 using TodoList.Models;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace TodoList.Controllers
 {
-    [Route("todo")]
+    [Route("/todo")]
     public class TodoController : Controller
     {
         TodoRepository todoRepository;
@@ -21,10 +19,10 @@ namespace TodoList.Controllers
         }
 
         [Route("")]
-        [Route("/list")]
+        [Route("list")]
         public IActionResult List()
         {
-            return View(todoRepository.GetListOfTasks());
+            return View(todoRepository.GetTasks());
         }
 
         [HttpGet]
@@ -36,10 +34,18 @@ namespace TodoList.Controllers
 
         [HttpPost]
         [Route("add")]
-        public IActionResult Add(Todo todo)
+        public IActionResult Add(string title)
         {
-            todoRepository.AddTask(todo);
-            return RedirectToAction ("List");
+            todoRepository.AddTask(title);
+            return RedirectToAction("List");
+        }
+
+        [HttpGet]
+        [Route("remove/{id}")]
+        public IActionResult Remove(int id)
+        {
+            todoRepository.RemoveTask(id);
+            return RedirectToAction("todo");
         }
     }
 }
