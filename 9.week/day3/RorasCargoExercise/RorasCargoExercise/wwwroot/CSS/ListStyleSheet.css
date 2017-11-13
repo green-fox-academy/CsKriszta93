@@ -1,0 +1,8 @@
+﻿body {
+    background-image: url('assets/woodland-camo.jpg');
+    background-size: cover;
+}
+
+h1{
+    font-weight: bold;
+}

@@ -7,8 +7,8 @@ namespace RorasCargo.Models
 {
     public class Cargo
     {
-        public long id { get; set; }
-        public int caliber { get; set; }
-        public bool ready { get; set; }
+        public long Id { get; set; }
+        public int Caliber { get; set; }
+        public bool Ready { get; set; }
     }
 }

@@ -1,0 +1,28 @@
+﻿@model List<Reddit.Models.Post>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>POSTS:</h1>
+      <table>
+          <tr>
+            <th>ID</th>
+            <th>SCORE</th>
+            <th>ACTIONS</th>
+            <th>CONTENT</th>
+          </tr>
+
+        @foreach (var post in Model)
+    {
+            <tr>
+                <td>@post.Id</td>
+                <td>@post.Score</td>
+                <td>@post.Content</td>
+                <td>@post.Date</td>
+            </tr>
+        }      
+    </table>
+</body>
+</html>

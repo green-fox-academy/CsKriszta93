@@ -1,0 +1,41 @@
+﻿@model List<RorasCargoExercise.Models.Rocket>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Rockets</title>
+    @{ 
+        Layout = "_Layout";
+    }
+    <link href=@Url.Content("~/CSS/ListStyleSheet.css") rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1>YOUR ROCKETS:</h1>
+    </div>
+        <form action="http://localhost:50802/rocket/load">
+            <input type="hidden" value="submit" />
+            <button class="btn-danger" id="task" type="submit">Load ship</button>
+        </form>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="thread">
+                    <tr>
+                        <th>ID</th>
+                        <th>CALIBER</th>
+                        <th>READY</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var rocket in Model)
+            {
+                        <tr>
+                            <td>@rocket.Id</td>
+                            <td>@rocket.Caliber</td>
+                            <td>@rocket.Ready</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+</body>
+</html>

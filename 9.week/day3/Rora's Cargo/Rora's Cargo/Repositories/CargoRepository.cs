@@ -21,9 +21,18 @@ namespace RorasCargo.Repositories
             return CargoContext.Cargos.ToList();
         }
 
-        public void AddCargo(Cargo cargo)
+        public void AddCargo(int caliber)
         {
-            CargoContext.Cargos.Add(cargo);
+            CargoContext.Cargos.Add(new Cargo { Caliber = caliber });
+            CargoContext.SaveChanges();
+        }
+
+        public void RemoveCargo(int id)
+        {
+            var remove = (from cargo in CargoContext.Cargos
+                          where cargo.Id == id
+                          select cargo).FirstOrDefault();
+            CargoContext.Cargos.Remove(remove);
             CargoContext.SaveChanges();
         }
     }
