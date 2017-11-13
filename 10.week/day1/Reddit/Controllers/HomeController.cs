@@ -37,11 +37,20 @@ namespace Reddit.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("/plus/{id}")]
         public IActionResult Plus(long id)
         {
-            
+            postRepository.VotePositive("plus", id);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [Route("/minus/{id}")]
+        public IActionResult Minus(long id)
+        {
+            postRepository.VoteNegative("minus", id);
+            return RedirectToAction("Index");
         }
     }
 }
