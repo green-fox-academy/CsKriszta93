@@ -3,6 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
+    @{ 
+        Layout = "_Layout";
+      }
 </head>
 <body>
     <form action="http://localhost:57374/add">
@@ -10,7 +13,7 @@
         <button id="task" type="submit">Add new Post</button>
     </form>
     <h1>POSTS:</h1>
-      <table>
+      <table class="table-bordered">
           <tr>
             <th>ID</th>
             <th>SCORE</th>
@@ -25,7 +28,9 @@
                 <td>@post.Id</td>
                 <td>@post.Score</td>
                 <td>
-                <a href="/ "+</td>
+                    <a href="http://localhost:57374/plus/{id}">+</a>/
+                    <a href="http://localhost:57374/minus/{id}">-</a>
+                </td>
                 <td>@post.Content</td>
                 <td>@post.Date</td>
             </tr>
