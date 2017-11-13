@@ -30,14 +30,32 @@ namespace Reddit.Repositories
             postContext.SaveChanges();
         }
 
-        public void VotePositive()
+        public Post PostbyId(long id)
         {
+            var postById = (from post in postContext.Posts
+                            where post.Id == id
+                            select post).FirstOrDefault();
+            return postById;
+        }
 
+        public void VotePositive(string voting, long id)
+        {
+            if (voting.Equals("plus"))
+            {
+                PostbyId(id).Score++;
+            }
+            postContext.Update(PostbyId(id));
+            postContext.SaveChanges();
         }
         
-        public void VoteNegative()
+        public void VoteNegative(string voting, long id)
         {
-
+            if (voting.Equals("minus"))
+            {
+                PostbyId(id).Score--;
+            }
+            postContext.Update(PostbyId(id));
+            postContext.SaveChanges();
         }
     }
 }

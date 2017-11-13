@@ -7,7 +7,7 @@
 <body>
     <form action="http://localhost:57374/add">
         <input type="hidden" value="submit" />
-        <button class="btn-success" id="task" type="submit">Add new Post</button>
+        <button id="task" type="submit">Add new Post</button>
     </form>
     <h1>POSTS:</h1>
       <table>
@@ -24,7 +24,8 @@
             <tr>
                 <td>@post.Id</td>
                 <td>@post.Score</td>
-                <td>+/-</td>
+                <td>
+                <a href="/ "+</td>
                 <td>@post.Content</td>
                 <td>@post.Date</td>
             </tr>

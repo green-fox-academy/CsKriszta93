@@ -36,5 +36,12 @@ namespace Reddit.Controllers
             postRepository.AddPost(content);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        [Route("/plus/{id}")]
+        public IActionResult Plus(long id)
+        {
+            
+        }
     }
 }
