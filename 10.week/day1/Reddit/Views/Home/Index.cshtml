@@ -16,6 +16,7 @@
             <th>SCORE</th>
             <th>ACTIONS</th>
             <th>CONTENT</th>
+            <th>DATE</th>
           </tr>
 
         @foreach (var post in Model)
@@ -23,6 +24,7 @@
             <tr>
                 <td>@post.Id</td>
                 <td>@post.Score</td>
+                <td>+/-</td>
                 <td>@post.Content</td>
                 <td>@post.Date</td>
             </tr>

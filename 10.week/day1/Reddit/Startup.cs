@@ -20,7 +20,7 @@ namespace Reddit
             var connectionString = @"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = Posts; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = True; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
             services.AddMvc();
             services.AddDbContext<PostContext>(options => options.UseSqlServer(connectionString));
-            services.AddScoped<PostRepository>();
+            services.AddTransient<PostRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

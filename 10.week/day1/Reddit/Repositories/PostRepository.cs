@@ -18,13 +18,26 @@ namespace Reddit.Repositories
 
         public List<Post> GetPosts()
         {
-            return postContext.Posts.ToList();
+            var posts = (from post in postContext.Posts
+                         orderby post.Score descending
+                         select post).ToList();
+            return posts;
         }
 
         public void AddPost(string content)
         {
             postContext.Posts.Add(new Post { Content = content });
             postContext.SaveChanges();
+        }
+
+        public void VotePositive()
+        {
+
+        }
+        
+        public void VoteNegative()
+        {
+
         }
     }
 }
