@@ -6,35 +6,40 @@
     @{ 
         Layout = "_Layout";
       }
+    <link href=@Url.Content("~/StyleSheet.css") rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <form action="http://localhost:57374/add">
-        <input type="hidden" value="submit" />
-        <button id="task" type="submit">Add new Post</button>
-    </form>
-    <h1>POSTS:</h1>
-      <table class="table-bordered">
-          <tr>
-            <th>ID</th>
-            <th>SCORE</th>
-            <th>ACTIONS</th>
-            <th>CONTENT</th>
-            <th>DATE</th>
-          </tr>
-
-        @foreach (var post in Model)
-    {
+    <div class="jumbotron text-center">
+        <h1>POSTS</h1>
+    </div>
+    <div class="table-responsive">
+        <table class="table">
             <tr>
-                <td>@post.Id</td>
-                <td>@post.Score</td>
-                <td>
-                    <a href="http://localhost:57374/plus/@post.Id">+</a>
-                    <a href="http://localhost:57374/minus/@post.Id">-</a>
-                </td>
-                <td>@post.Content</td>
-                <td>@post.Date</td>
+                <th>ID</th>
+                <th>SCORE</th>
+                <th>ACTIONS</th>
+                <th>CONTENT</th>
+                <th>DATE</th>
             </tr>
-        }      
-    </table>
+
+            @foreach (var post in Model)
+            {
+                <tr>
+                    <td>@post.Id</td>
+                    <td>@post.Score</td>
+                    <td>
+                        <a href="http://localhost:57374/plus/@post.Id">+</a>/
+                        <a href="http://localhost:57374/minus/@post.Id">-</a>
+                    </td>
+                    <td>@post.Content</td>
+                    <td>@post.Date</td>
+                </tr>
+            }
+        </table>
+        <form action="http://localhost:57374/add">
+            <input type="hidden" value="submit" />
+            <button class="btn-success" id="task" type="submit">Add new Post</button>
+        </form>
+    </div>
 </body>
 </html>
