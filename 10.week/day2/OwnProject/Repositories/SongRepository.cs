@@ -20,5 +20,11 @@ namespace OwnProject.Repositories
         {
             return SongContext.Songs.ToList();
         }
+
+        public void AddSong(string title)
+        {
+            SongContext.Songs.Add(new Song { Title = title });
+            SongContext.SaveChanges();
+        }
     }
 }
