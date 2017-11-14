@@ -26,5 +26,13 @@ namespace OwnProject.Repositories
             SongContext.Songs.Add(new Song { Title = title });
             SongContext.SaveChanges();
         }
+
+        public Song SelectSong(string title)
+        {
+            var selected = (from song in SongContext.Songs
+                            where song.Title == title
+                            select song).FirstOrDefault();
+            return selected;
+        }
     }
 }
