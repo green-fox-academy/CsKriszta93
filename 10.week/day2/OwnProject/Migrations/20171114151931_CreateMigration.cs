@@ -30,9 +30,10 @@ namespace OwnProject.Migrations
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Album = table.Column<string>(nullable: true),
-                    Artist = table.Column<long>(nullable: false),
+                    Artist = table.Column<string>(nullable: true),
                     Date = table.Column<int>(nullable: false),
-                    Genre = table.Column<string>(nullable: true)
+                    Genre = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

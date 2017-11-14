@@ -8,7 +8,8 @@ namespace OwnProject.Models
     public class Song
     {
         public long Id { get; set; }
-        public long Artist { get; set; }
+        public string Title { get; set; }
+        public string Artist { get; set; }
         public string Album { get; set; }
         public int Date { get; set; }
         public string Genre { get; set; }

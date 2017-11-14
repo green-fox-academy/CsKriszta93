@@ -3,16 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using OwnProject.Repositories;
 
 namespace OwnProject.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        SongRepository SongRepository;
+
+        public HomeController(SongRepository songRepository)
         {
-            return View();
+            SongRepository = songRepository;
+        }
+
+        [Route("/songs")]
+        public IActionResult Songs()
+        {
+            return View(SongRepository.GetSongs());
         }
     }
 }

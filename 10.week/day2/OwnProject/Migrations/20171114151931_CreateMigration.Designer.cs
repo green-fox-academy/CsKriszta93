@@ -8,7 +8,7 @@ using OwnProject.Entities;
 namespace OwnProject.Migrations
 {
     [DbContext(typeof(SongContext))]
-    [Migration("20171114143839_CreateMigration")]
+    [Migration("20171114151931_CreateMigration")]
     partial class CreateMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,11 +38,13 @@ namespace OwnProject.Migrations
 
                     b.Property<string>("Album");
 
-                    b.Property<long>("Artist");
+                    b.Property<string>("Artist");
 
                     b.Property<int>("Date");
 
                     b.Property<string>("Genre");
+
+                    b.Property<string>("Title");
 
                     b.HasKey("Id");
 

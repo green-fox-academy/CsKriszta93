@@ -1,0 +1,32 @@
+﻿@model List<OwnProject.Models.Song>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Album</th>
+            <th>Year</th>
+            <th>Genre</th>
+        </tr>
+        
+        @foreach (var song in Model)
+        {
+            <tr>
+                <td>@song.Id</td>
+                <td>@song.Title</td>
+                <td>@song.Artist</td>
+                <td>@song.Album</td>
+                <td>@song.Date</td>
+                <td>@song.Genre</td>
+            </tr>
+        }
+       
+    </table>
+</body>
+</html>

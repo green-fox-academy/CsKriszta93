@@ -37,11 +37,13 @@ namespace OwnProject.Migrations
 
                     b.Property<string>("Album");
 
-                    b.Property<long>("Artist");
+                    b.Property<string>("Artist");
 
                     b.Property<int>("Date");
 
                     b.Property<string>("Genre");
+
+                    b.Property<string>("Title");
 
                     b.HasKey("Id");
 

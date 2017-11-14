@@ -1,4 +1,5 @@
 ﻿using OwnProject.Entities;
+using OwnProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,11 @@ namespace OwnProject.Repositories
         public SongRepository(SongContext songContext)
         {
             SongContext = songContext;
+        }
+
+        public List<Song> GetSongs()
+        {
+            return SongContext.Songs.ToList();
         }
     }
 }
