@@ -37,7 +37,6 @@ namespace Reddit.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
         [Route("/plus/{id}")]
         public IActionResult Plus(long id)
         {
@@ -45,7 +44,6 @@ namespace Reddit.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
         [Route("/minus/{id}")]
         public IActionResult Minus(long id)
         {
