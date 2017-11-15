@@ -4,22 +4,39 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FoxManager.Repositories;
+using FoxManager.Models;
+using FoxManager.Services;
 
 namespace FoxManager.Controllers
 {
     [Route("home")]
     public class HomeController : Controller
     {
-        FoxRepository FoxRepository;
+        FoxService FoxService;
 
-        public HomeController(FoxRepository foxRepository)
+        public HomeController(FoxService foxService)
         {
-            FoxRepository = foxRepository;
+            FoxService = foxService;
         }
 
-        public IActionResult Index()
+        [HttpPost]
+        public IActionResult LoginHandler(Student studentFromForm)
         {
-            return View();
+            if (FoxService.AuthenticateStudent(studentFromForm.Name))
+            {
+                return LocalRedirect("/student/" + studentFromForm.Name);
+            }
+
+            return LocalRedirect("/");
+        }
+
+        [HttpGet]
+        [Route("/student/{studentName}")]
+        public IActionResult Profile(string studentName)
+        {
+            var selectedStudent = FoxService.GetStudentInfo(studentName);
+            var projects = FoxService.GetTasks(studentName);
+            return View(selectedStudent);
         }
     }
 }
