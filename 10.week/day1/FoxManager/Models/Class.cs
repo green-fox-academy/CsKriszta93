@@ -7,7 +7,7 @@ namespace FoxManager.Models
 {
     public class Class
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string ClassName { get; set; }
         public string Technology { get; set; } 
     }
