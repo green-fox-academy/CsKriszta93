@@ -14,5 +14,16 @@ namespace FoxManager.Repositories
         {
             FoxContext = foxContext;
         }
+
+        public List<Models.Task> GetTaks()
+        {
+            return FoxContext.Tasks.ToList();
+        }
+
+        public void AddTask(string taskname)
+        {
+            FoxContext.Tasks.Add(new Models.Task { TaskName = taskname });
+            FoxContext.SaveChanges();
+        }
     }
 }
