@@ -22,9 +22,9 @@ namespace CalorieTable.Repositories
             return foodContext.Foods.ToList();
         }
 
-        public void AddFood(string name)
+        public void AddFood(Food food)
         {
-            foodContext.Foods.Add(new Food { Name = name });
+            foodContext.Foods.Add(food);
             foodContext.SaveChanges();
         }
 
@@ -35,7 +35,14 @@ namespace CalorieTable.Repositories
 
         public void Remove(long id)
         {
-            var
+            foodContext.Foods.Remove(GetId(id));
+            foodContext.SaveChanges();
+        }
+
+        public void ChangeAmount(Food food)
+        {
+            foodContext.Update(food);
+            foodContext.SaveChanges();
         }
     }
 }
