@@ -7,11 +7,9 @@ namespace FoxManager.Models
 {
     public class Student
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
-        public List<int> TestId { get; set; }
-        public long TeamId { get; set; }
-        public long ClassId { get; set; }
-
+        public int TeamId { get; set; }
+        public int ClassId { get; set; }
     }
 }
