@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CalorieTable.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,7 @@ namespace CalorieTable.Entities
         {
 
         }
+
+        public DbSet<Food>Foods { get; set; }
     }
 }

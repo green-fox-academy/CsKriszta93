@@ -17,6 +17,25 @@ namespace CalorieTable.Repositories
             this.foodContext = foodContext;
         }
 
-        public DbSet<Food> Foods { get; set; }
+        public List<Food> FoodList()
+        {
+            return foodContext.Foods.ToList();
+        }
+
+        public void AddFood(string name)
+        {
+            foodContext.Foods.Add(new Food { Name = name });
+            foodContext.SaveChanges();
+        }
+
+        public Food GetId(long id)
+        {
+            return foodContext.Foods.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void Remove(long id)
+        {
+            var
+        }
     }
 }
