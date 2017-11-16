@@ -18,7 +18,7 @@ namespace Groot.Controllers
             }
             else
             {
-                return Json(new { received = message, translated = "I am Groot" });
+                return Json(new { received = message, translated = "I am Groot!" });
             }         
         }
     }

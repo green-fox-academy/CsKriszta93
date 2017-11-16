@@ -44,5 +44,10 @@ namespace CalorieTable.Repositories
             foodContext.Update(food);
             foodContext.SaveChanges();
         }
+
+        public Food FindFood(long id)
+        {
+            return foodContext.Foods.FirstOrDefault();
+        }
     }
 }

@@ -21,24 +21,43 @@ namespace CalorieTable.Controllers
 
         [HttpGet]
         [Route("/drax")]
-        public IActionResult List()
+        public IEnumerable<Food> List()
         {
-            return View(foodRepository.FoodList());
-        }
-
-        [HttpGet]
-        [Route("add")]
-        public IActionResult Add()
-        {
-            return View();
+            return foodRepository.FoodList();
         }
 
         [HttpPost]
-        [Route("add")]
-        public IActionResult AddFood(Food food)
+        [Route("/add")]
+        public IActionResult AddFood([FromQuery] Food food)
         {
-            foodRepository.AddFood(food);
-            return RedirectToAction("List");
+            if (food.Name == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                foodRepository.AddFood(food);
+                return Ok(food);
+            }           
+        }
+
+        [HttpGet]
+        [Route("/drax/{id}")]
+        public IActionResult FindFoodById(long id)
+        {
+            var food = foodRepository.FindFood(id);
+            if (food == null)
+            {
+                return NotFound();
+            }
+            return new ObjectResult(food);
+        }
+
+        [HttpGet]
+        [Route("/api")]
+        public IActionResult GetFirstFood()
+        {
+            return Json(new { name = foodRepository.FindFood().Name.ToString(), amount = foodRepository.FindFood().Amount.ToString(), calorie = foodRepository.FindFood().Calorie.ToString() });
         }
     }
 }
